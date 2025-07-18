@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Math Score Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Math Score</h1>
+        <form method="POST" action="/predictdata" class="form">
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="race_ethnicity">Race/Ethnicity</label>
+                <select id="race_ethnicity" name="race_ethnicity" required>
+                    <option value="" disabled selected>Select race/ethnicity</option>
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="parental_level_of_education">Parental Level of Education</label>
+                <select id="parental_level_of_education" name="parental_level_of_education" required>
+                    <option value="" disabled selected>Select parental education</option>
+                    <option value="bachelor's degree">Bachelor's Degree</option>
+                    <option value="some college">Some College</option>
+                    <option value="master's degree">Master's Degree</option>
+                    <option value="associate's degree">Associate's Degree</option>
+                    <option value="high school">High School</option>
+                    <option value="some high school">Some High School</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="lunch">Lunch</label>
+                <select id="lunch" name="lunch" required>
+                    <option value="" disabled selected>Select lunch</option>
+                    <option value="standard">Standard</option>
+                    <option value="free/reduced">Free/Reduced</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="test_preparation_course">Test Preparation Course</label>
+                <select id="test_preparation_course" name="test_preparation_course" required>
+                    <option value="" disabled selected>Select test preparation</option>
+                    <option value="none">None</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="reading_score">Reading Score</label>
+                <input type="number" id="reading_score" name="reading_score" min="0" max="100" required />
+            </div>
+
+            <div class="form-group">
+                <label for="writing_score">Writing Score</label>
+                <input type="number" id="writing_score" name="writing_score" min="0" max="100" required />
+            </div>
+
+            <button type="submit" class="btn">Predict</button>
+        </form>
+
+        {% if results is defined %}
+        <div class="result">
+            Predicted Math Score: {{ results }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
